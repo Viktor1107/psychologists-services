@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  gap: 16px;
+}
+.button {
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  border-radius: 30px;
+  padding: 14px 39px;
+  width: 124px;
+  height: 48px;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.buttonRegister {
+  background: #54be96;
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  border-radius: 30px;
+  padding: 14px 39px;
+  width: 124px;
+  height: 48px;
+  transition: all 0, 3s ease-in-out;
+  color: #fff;
+}
+
+.buttonRegister:hover {
+  background: #36a379;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}

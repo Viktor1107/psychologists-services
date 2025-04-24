@@ -1,0 +1,15 @@
+.header {
+  border-bottom: 1px solid rgba(25, 26, 21, 0.1);
+}
+
+.container {
+  padding: 24px 128px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menuLogo {
+  gap: 130px;
+  display: flex;
+  align-items: center;
+}

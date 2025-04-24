@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 64px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font: 500 40px / 120% var(--font-family);
+  letter-spacing: -0.02em;
+  color: #191a15;
+}
+
+.titleText {
+  font: 400 16px / 125% var(--font-family);
+  color: rgba(25, 26, 21, 0.5);
+}
+
+.labelBlock {
+  display: flex;
+  flex-direction: column;
+  /* width: 438px;
+  height: 192px; */
+  gap: 18px;
+}
+
+.label {
+  border: 1px solid rgba(25, 26, 21, 0.1);
+  border-radius: 12px;
+  width: 100%;
+  padding: 16px 18px;
+  box-sizing: border-box;
+  font: 400 16px / 125% var(--font-family);
+  color: #191a15;
+}
+
+.button {
+  border-radius: 30px;
+  padding: 16px;
+  width: 100%;
+  max-width: 438px;
+  height: 52px;
+  background: #54be96;
+  font: 500 16px/125% var(--font-family);
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: #36a379;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(84, 190, 150, 0.4);
+}
