@@ -2,6 +2,18 @@ const SvgSprite = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
       <defs>
+        <symbol id="icon-heart" viewBox="0 0 32 32">
+          <path
+            fill="currentColor"
+            d="M22.545 2.667c-2.926 0-5.209 1.6-6.545 3.307-1.336-1.707-3.62-3.307-6.545-3.307C5.196 2.667 2 6.124 2 10.225c0 6.655 12.088 16.202 13.184 17.039a1.334 1.334 0 0 0 1.632 0C17.912 26.427 30 16.88 30 10.225c0-4.101-3.196-7.558-7.455-7.558z"
+          ></path>
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 32 32">
+          <path d="M16 1.333l4.275 8.66 9.558 1.392-6.917 6.738 1.633 9.537L16 23.924l-8.549 4.736 1.634-9.537-6.918-6.738 9.559-1.392L16 1.333z"></path>
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 32 32">
+          <path d="M16 0a16 16 0 1 0 16 16A16.018 16.018 0 0 0 16 0zm0 29.333A13.333 13.333 0 1 1 29.333 16 13.348 13.348 0 0 1 16 29.333zm.667-21.333h-2.667v8l6.933 4 1.334-2.24-5.6-3.36z"></path>
+        </symbol>
         <symbol id="icon-eye" viewBox="0 0 32 32">
           <path
             fill="none"
@@ -85,28 +97,3 @@ const SvgSprite = () => {
   );
 };
 export default SvgSprite;
-
-//   const SvgSprite = () => {
-//   return (
-//     <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
-//       <defs> <symbol id="icon-eye" viewBox="0 0 32 32">
-//           <path
-//             fill="none"
-//             stroke="#407bff"
-//             strokeLinecap="round"
-//             strokeLinejoin="round"
-//             strokeWidth="1.333"
-//             d="M2.715 16.429a1.35 1.35 0 0 1 0-.852C4.564 10.013 9.814 6 16 6c6.184 0 11.431 4.009 13.284 9.571.093.276.093.575 0 .852C27.436 21.987 22.187 26 16 26c-6.184 0-11.432-4.009-13.285-9.571z"
-//           /> <symbol id="icon-eye-slash" viewBox="0 0 32 32">
-//           <path
-//             fill="none"
-//             stroke="#407bff"
-//             strokeLinecap="round"
-//             strokeLinejoin="round"
-//             strokeWidth="1.333"
-//             d="M5.307 10.964A13.978 13.978 0 0 0 2.579 16C4.302 21.784 9.659 26 16 26c1.324 0 2.604-.184 3.817-.527M8.304 8.304A13.936 13.936 0 0 1 16 6c6.341 0 11.697 4.216 13.42 9.997a14.033 14.033 0 0 1-5.724 7.699M8.304 8.304 4 4m4.304 4.304 4.867 4.867m10.525 10.525L28 28m-4.304-4.304-4.867-4.867A3.996 3.996 0 0 0 20 16a4.001 4.001 0 0 0-4-4 4.017 4.017 0 0 0-2.829 1.172m5.657 5.656-5.655-5.655"
-//           /> </defs>
-//     </svg>
-//   );
-// };
-// export default SvgSprite;

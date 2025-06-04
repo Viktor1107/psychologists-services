@@ -54,4 +54,11 @@ p {
   line-height: 120%;
   letter-spacing: -0.01em;
   color: #fbfbfb;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonStarted:hover {
+  background-color: #36a379;
+  cursor: pointer;
 }

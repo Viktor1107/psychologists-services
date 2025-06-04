@@ -66,3 +66,22 @@
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(84, 190, 150, 0.4);
 }
+
+.passwordLabel {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.eyeButton {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0;
+}

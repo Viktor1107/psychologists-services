@@ -13,13 +13,12 @@ function App() {
     <>
       <SvgSprite />
       <AppBar />
-      <WelcomePage />
       <Routes>
-        <Route path="/" element={<HomePage />}>
-          <Route path="psychologists" element={<Psychologists />} />
-          <Route path="favorites" element={<Favorites />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/psychologists" element={<Psychologists />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

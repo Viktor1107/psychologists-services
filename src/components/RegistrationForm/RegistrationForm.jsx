@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import s from "./RegistrationForm.module.css";
+import Icon from "../Icon/Icon";
 
 const RegistrationForm = () => {
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
   const FormSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Too Short!")
@@ -55,14 +57,26 @@ const RegistrationForm = () => {
               className={s.label}
             />
             <ErrorMessage name="email" />
-            <label htmlFor="password"></label>
-            <Field
-              type="password"
-              name="password"
-              placeholder="password"
-              className={s.label}
-            />
-            <ErrorMessage name="password" />
+            <label htmlFor="password" className={s.passwordLabel}>
+              <Field
+                type={isPasswordShown ? "text" : "password"}
+                name="password"
+                placeholder="password"
+                className={s.label}
+              />
+              <button
+                type="button"
+                className={s.eyeButton}
+                onClick={() => setIsPasswordShown(!isPasswordShown)}
+              >
+                {isPasswordShown ? (
+                  <Icon width={24} height={24} name="icon-eye" />
+                ) : (
+                  <Icon width={24} height={24} name="icon-eye-slash" />
+                )}
+              </button>
+              <ErrorMessage name="password" />
+            </label>
           </div>
 
           <button className={s.button} type="submit">

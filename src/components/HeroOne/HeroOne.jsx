@@ -1,7 +1,14 @@
 import React from "react";
 import s from "./HeroOne.module.css";
+import { useNavigate } from "react-router-dom";
 
 const HeroOne = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/psychologists");
+  };
+
   return (
     <>
       <div className={s.blockFirst}>
@@ -16,7 +23,7 @@ const HeroOne = () => {
           </p>
         </div>
 
-        <button className={s.buttonStarted}>
+        <button className={s.buttonStarted} onClick={handleClick}>
           Get started{" "}
           <div className={s.svgButton}>
             <svg
