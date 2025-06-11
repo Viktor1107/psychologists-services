@@ -1,8 +1,8 @@
 import s from "./Icon.module.css";
 
-const Icon = ({ name, width = 24, height = 24, color = "#407bff" }) => {
+const Icon = ({ name, className, width = 24, height = 24, color }) => {
   return (
-    <svg width={width} height={height} className={s.icon} fill={color}>
+    <svg width={width} height={height} className={className} fill={color}>
       <use href={`#${name}`} />
     </svg>
   );

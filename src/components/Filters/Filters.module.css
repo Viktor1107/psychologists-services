@@ -1,0 +1,58 @@
+.wrapper {
+  position: relative;
+  width: 200px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  stroke-width: 2px;
+  stroke: #fbfbfb;
+  color: #4caf50;
+  rotate: 180deg;
+  transition: transform 0.3s ease;
+}
+.open {
+  transform: rotate(180deg);
+}
+
+.optionsList {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.optionItem {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color: #333;
+}
+
+.optionItem:hover {
+  background-color: #f2f2f2;
+}

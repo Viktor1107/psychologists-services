@@ -1,43 +1,84 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Icon from "../../components/Icon/Icon";
+import PsychologistCard from "../../components/PsychologistsCard/PsychologistsCard";
+import Filters from "../../components/Filters/Filters";
+import s from "./Psychologists.module.css";
 
 const Psychologists = () => {
   const [psychologists, setPsychologists] = useState([]);
+  const [filteredPsychologists, setFilteredPsychologists] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(3);
+
   useEffect(() => {
     fetch("/psychologists.json")
       .then((res) => res.json())
-      .then((data) => setPsychologists(data))
+      .then((data) => {
+        setPsychologists(data);
+        setFilteredPsychologists(data);
+      })
       .catch((error) => console.error("Error loading data:", error));
   }, []);
 
-  return (
-    <div>
-      {/* <h1>Our Psychologists</h1> */}
-      <ul>
-        {psychologists.map((item) => (
-          <li key={item.id}>
-            <img src={item.photo} alt={item.name} width={250} />
-            <div>
-              <h2>{item.name}</h2>
-              <p>{item.specialty}</p>
-            </div>
-            <div>
-              <p>Price / 1 hour: {item.price_per_hour}$</p>
-              <p>
-                <Icon name="icon-star" width={16} height={15} fill=" #ffc531" />
-                Rating: {item.rating}
-              </p>
-            </div>
+  const handleFilter = (filterValue) => {
+    let filtered = [...psychologists];
 
-            <p>{item.experience}</p>
-            <p>{item.license}</p>
-            <p>{item.specialization}</p>
-            <p>{item.initial_consultation}</p>
-            <p>{item.about}</p>
-          </li>
+    switch (filterValue) {
+      case "a-z":
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "z-a":
+        filtered.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case "less-10":
+        filtered = filtered.filter((p) => p.price_per_hour < 10);
+        break;
+      case "greater-10":
+        filtered = filtered.filter((p) => p.price_per_hour >= 10);
+        break;
+      case "popular":
+        filtered = filtered.filter((p) => p.rating >= 4);
+        break;
+      case "not-popular":
+        filtered = filtered.filter((p) => p.rating < 4);
+        break;
+      case "all":
+      default:
+        filtered = [...psychologists];
+        break;
+    }
+
+    setFilteredPsychologists(filtered);
+    setVisibleCount(3);
+  };
+
+  const visiblePsychologists = filteredPsychologists.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredPsychologists.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
+
+  return (
+    <div className={s.container}>
+      <Filters onSelect={handleFilter} />
+
+      <ul className={s.list}>
+        {visiblePsychologists.map((item) => (
+          <PsychologistCard key={item.id} data={item} />
         ))}
       </ul>
+
+      {visiblePsychologists.length === 0 && (
+        <p className={s.placeholder}>
+          No psychologists found matching the selected criteria.
+        </p>
+      )}
+
+      {hasMore && visiblePsychologists.length > 0 && (
+        <button onClick={handleLoadMore} className={s.loadMoreButton}>
+          Load more
+        </button>
+      )}
     </div>
   );
 };
