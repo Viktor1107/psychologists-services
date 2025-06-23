@@ -3,11 +3,14 @@ import Icon from "../../components/Icon/Icon";
 import PsychologistCard from "../../components/PsychologistsCard/PsychologistsCard";
 import Filters from "../../components/Filters/Filters";
 import s from "./Psychologists.module.css";
+import PsychologistCardModal from "../../components/PsychologistCardModal/PsychologistCardModal";
 
 const Psychologists = () => {
   const [psychologists, setPsychologists] = useState([]);
   const [filteredPsychologists, setFilteredPsychologists] = useState([]);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [selectedPsychologist, setSelectedPsychologist] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     fetch("/psychologists.json")
@@ -58,13 +61,25 @@ const Psychologists = () => {
     setVisibleCount((prev) => prev + 3);
   };
 
+  const toggleFavorite = (id) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
+    );
+  };
+
   return (
     <div className={s.container}>
       <Filters onSelect={handleFilter} />
 
       <ul className={s.list}>
         {visiblePsychologists.map((item) => (
-          <PsychologistCard key={item.id} data={item} />
+          <PsychologistCard
+            key={item.id}
+            data={item}
+            onReadMore={setSelectedPsychologist}
+            toggleFavorite={() => toggleFavorite(item.id)}
+            isFavorite={favorites.includes(item.id)}
+          />
         ))}
       </ul>
 
@@ -72,6 +87,13 @@ const Psychologists = () => {
         <p className={s.placeholder}>
           No psychologists found matching the selected criteria.
         </p>
+      )}
+
+      {selectedPsychologist && (
+        <PsychologistCardModal
+          data={selectedPsychologist}
+          onClose={() => setSelectedPsychologist(null)}
+        />
       )}
 
       {hasMore && visiblePsychologists.length > 0 && (

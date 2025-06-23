@@ -5,16 +5,17 @@ const SvgSprite = () => {
         <symbol id="icon-heart" viewBox="0 0 32 32">
           <path
             fill="currentColor"
+            strokeWidth="4"
             d="M22.545 2.667c-2.926 0-5.209 1.6-6.545 3.307-1.336-1.707-3.62-3.307-6.545-3.307C5.196 2.667 2 6.124 2 10.225c0 6.655 12.088 16.202 13.184 17.039a1.334 1.334 0 0 0 1.632 0C17.912 26.427 30 16.88 30 10.225c0-4.101-3.196-7.558-7.455-7.558z"
           ></path>
         </symbol>
         <symbol id="icon-chevron-down" viewBox="0 0 32 32">
           <path
             fill="currentColor"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            stroke-miterlimit="4"
-            stroke-width="3.2"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeMiterlimit="4"
+            strokeWidth="3.2"
             d="M8 20l8-8 8 8"
           ></path>
         </symbol>
