@@ -75,6 +75,7 @@
 
 .header {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   gap: 20px;
   position: relative;
@@ -91,13 +92,19 @@
 }
 
 .title {
-  color: #54be96;
-  font-weight: 500;
+  font: 500 16px / 150% var(--font-family);
+  color: #8a8a89;
 }
 
 .name {
   margin: 5px 0;
-  font-size: 20px;
+  font: 500 24px;
+  color: #191a15;
+}
+
+.tagsGroup {
+  display: flex;
+  flex-direction: column;
 }
 
 .tags {
@@ -176,7 +183,8 @@
   background: white;
   padding: 24px;
   border-radius: 12px;
-  max-width: 800px;
+  max-width: 1184px;
+  /* min-height: 641px; */
   width: 90%;
   position: relative;
   max-height: 90vh;
@@ -187,7 +195,24 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  background: none;
+  width: 40px;
+  height: 40px;
+  background: transparent;
   border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.closeBtn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.iconClose {
+  fill: black;
+  width: 14px;
+  height: 14px;
+  stroke: #000;
 }

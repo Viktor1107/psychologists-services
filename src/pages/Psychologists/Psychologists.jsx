@@ -93,6 +93,7 @@ const Psychologists = () => {
         <PsychologistCardModal
           data={selectedPsychologist}
           onClose={() => setSelectedPsychologist(null)}
+          toggleFavorite={toggleFavorite}
         />
       )}
 

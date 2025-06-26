@@ -90,10 +90,13 @@ const SvgSprite = () => {
         </symbol>
 
         <symbol id="icon-icon-close" viewBox="0 0 32 32">
+          <rect width="32" height="32" fill="transparent" />
           <path
+            fill="none"
+            stroke="currentColor"
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth="3.429"
+            strokeWidth="2.429"
             d="M2.286 29.714 29.715 2.285m-27.429.001 27.429 27.429"
           />
         </symbol>
