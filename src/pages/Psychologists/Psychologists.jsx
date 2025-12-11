@@ -4,23 +4,32 @@ import PsychologistCard from "../../components/PsychologistsCard/PsychologistsCa
 import Filters from "../../components/Filters/Filters";
 import s from "./Psychologists.module.css";
 import PsychologistCardModal from "../../components/PsychologistCardModal/PsychologistCardModal";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPsychologists } from "../../redux/operations";
 
 const Psychologists = () => {
-  const [psychologists, setPsychologists] = useState([]);
+  const psychologists = useSelector((state) => state.psychologists.items);
+
   const [filteredPsychologists, setFilteredPsychologists] = useState([]);
   const [visibleCount, setVisibleCount] = useState(3);
   const [selectedPsychologist, setSelectedPsychologist] = useState(null);
   const [favorites, setFavorites] = useState([]);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    fetch("/psychologists.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setPsychologists(data);
-        setFilteredPsychologists(data);
-      })
-      .catch((error) => console.error("Error loading data:", error));
-  }, []);
+    dispatch(fetchPsychologists());
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log("REDUX STATE:", psychologists);
+  }, [psychologists]);
+
+  useEffect(() => {
+    if (psychologists.length > 0) {
+      setFilteredPsychologists(psychologists);
+    }
+  }, [psychologists]);
 
   const handleFilter = (filterValue) => {
     let filtered = [...psychologists];
