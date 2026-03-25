@@ -3,9 +3,11 @@ import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import s from "./RegistrationForm.module.css";
 import Icon from "../Icon/Icon";
+import { useDispatch } from "react-redux";
 
 const RegistrationForm = () => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
+  const dispatch = useDispatch();
   const FormSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Too Short!")

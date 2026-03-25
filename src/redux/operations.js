@@ -9,10 +9,24 @@ export const fetchPsychologists = createAsyncThunk(
     try {
       const response = await axios.get("/psychologists");
       console.log("BACKEND RESPONSE:", response.data);
-      return response.data.data.data;
-    } catch (err) {
-      console.error("REQUEST ERROR:", err);
-      return thunkAPI.rejectWithValue(err.message);
+      return response.data.data;
+    } catch (error) {
+      console.error("REQUEST ERROR:", error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchPsychologistById = createAsyncThunk(
+  "psychologists/fetchById",
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(`/psychologists/${id}`);
+      console.log("BACKEND RESPONSE ID:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("REQUEST ERROR:", error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

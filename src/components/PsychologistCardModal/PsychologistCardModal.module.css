@@ -1,4 +1,4 @@
-/* .backdrop {
+.backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
@@ -60,7 +60,7 @@
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-} */
+}
 
 .card {
   display: flex;

@@ -7,7 +7,7 @@ import Icon from "../Icon/Icon";
 
 const LoginForm = () => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const FormSchema = Yup.object().shape({
     email: Yup.string().nullable().email().required("Required"),
@@ -18,7 +18,7 @@ const LoginForm = () => {
   });
 
   const handleSubmit = (values, options) => {
-    dispatch(register(values));
+    dispatch(login(values));
     options.resetForm();
   };
 

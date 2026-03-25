@@ -43,15 +43,19 @@ const Psychologists = () => {
         break;
       case "less-10":
         filtered = filtered.filter((p) => p.price_per_hour < 10);
+        filtered.sort((a, b) => a.price_per_hour - b.price_per_hour);
         break;
       case "greater-10":
         filtered = filtered.filter((p) => p.price_per_hour >= 10);
+        filtered.sort((a, b) => b.price_per_hour - a.price_per_hour);
         break;
       case "popular":
         filtered = filtered.filter((p) => p.rating >= 4);
+        filtered.sort((a, b) => b.rating - a.rating);
         break;
       case "not-popular":
         filtered = filtered.filter((p) => p.rating < 4);
+        filtered.sort((a, b) => a.rating - b.rating);
         break;
       case "all":
       default:
@@ -70,9 +74,11 @@ const Psychologists = () => {
     setVisibleCount((prev) => prev + 3);
   };
 
-  const toggleFavorite = (id) => {
+  const toggleFavorite = (_id) => {
     setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
+      prev.includes(id)
+        ? prev.filter((favId) => favId !== _id)
+        : [...prev, _id],
     );
   };
 
@@ -83,11 +89,11 @@ const Psychologists = () => {
       <ul className={s.list}>
         {visiblePsychologists.map((item) => (
           <PsychologistCard
-            key={item.id}
+            key={item._id}
             data={item}
             onReadMore={setSelectedPsychologist}
-            toggleFavorite={() => toggleFavorite(item.id)}
-            isFavorite={favorites.includes(item.id)}
+            toggleFavorite={() => toggleFavorite(item._id)}
+            isFavorite={favorites.includes(item._id)}
           />
         ))}
       </ul>

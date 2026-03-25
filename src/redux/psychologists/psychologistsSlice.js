@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPsychologists } from "../operations";
+import { fetchPsychologistById, fetchPsychologists } from "../operations";
 
 const psychologistsSlice = createSlice({
   name: "psychologists",
@@ -19,6 +19,17 @@ const psychologistsSlice = createSlice({
         state.items = action.payload;
       })
       .addCase(fetchPsychologists.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchPsychologistById.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchPsychologistById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchPsychologistById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
